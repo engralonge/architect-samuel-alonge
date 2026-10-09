@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import { navItems, socialLinks } from "@/data/site";
+import ContactDetails from "@/components/ContactDetails";
 
 export default function Footer() {
   return (
@@ -28,13 +29,8 @@ export default function Footer() {
           <address className="not-italic leading-7 text-white/75">
             Architect Samuel Alonge<br />
             Crystal Stairs Ltd<br />
-            {/* Replace with verified office address when available. */}
-            Lagos / Abuja, Nigeria
           </address>
-          {/* Replace with verified email and phone number when available. */}
-          <a className="mt-5 inline-flex text-white transition hover:text-accl-warm" href="mailto:hello@example.com">
-            hello@example.com
-          </a>
+          <ContactDetails />
           <div className="mt-7 flex flex-wrap gap-4 text-xs uppercase tracking-[0.18em] text-white/55">
             {socialLinks.map((item) => (
               <a key={item.label} href={item.href} className="transition hover:text-accl-warm">

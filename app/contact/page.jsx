@@ -1,5 +1,6 @@
 ﻿import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
+import ContactDetails from "@/components/ContactDetails";
 import { heroImage } from "@/data/site";
 
 export const metadata = {
@@ -8,7 +9,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero
         eyebrow="Private Consultation"
         title="Prepare a clear project brief before the first conversation."
@@ -21,11 +22,10 @@ export default function ContactPage() {
           <div>
             <p className="section-label">Contact</p>
             <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
-              Send a project inquiry to Crystal Stairs Ltd.
+              Tell us about your project.
             </h2>
             <div className="mt-10 space-y-5 text-lg leading-8 text-accl-muted">
-              {/* Replace with verified email and phone number when available. */}
-              <p>Email and phone details to be inserted once confirmed.</p>
+              <ContactDetails />
               <a className="block text-accl-ink transition hover:text-accl-warm" href="https://www.instagram.com/crystalstairs_ltd/">
                 Instagram: @crystalstairs_ltd
               </a>

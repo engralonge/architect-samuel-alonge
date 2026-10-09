@@ -1,5 +1,7 @@
 ﻿import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
+import Image from "next/image";
+import PhotoPending from "@/components/PhotoPending";
 import {
   gloryDomeImages,
   heroImage,
@@ -9,14 +11,15 @@ import {
   selectedVisuals,
   services
 } from "@/data/site";
+import { flagship, profile } from "@/data/site";
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero
         eyebrow="Architecture consulting for buildings that must carry meaning"
         title="Landmark architectural vision, led by Architect Samuel Alonge."
-        copy="Crystal Stairs Ltd shapes timeless, functional spaces through disciplined design, meticulous construction thinking, and a clear path from concept to built reality."
+        copy="We shape timeless, functional spaces through disciplined design, meticulous construction thinking, and a clear path from concept to built reality."
         image={heroImage}
         primaryCta={{ label: "Start a Consultation", href: "#contact" }}
         secondaryCta={{ label: "Study the Work", href: "#work" }}
@@ -31,19 +34,13 @@ export default function HomePage() {
                 A calm architectural mind for high-stakes buildings.
               </h2>
               <p className="mt-8 max-w-3xl text-lg leading-8 text-accl-muted">
-                Samuel Alonge's public brand is built around award-level design, meticulous craftsmanship,
-                and buildings that balance presence with practical function. The consulting offer is simple:
-                help clients make better decisions before drawings, budgets, contractors, and site pressure
-                lock the project in place.
+                {profile.copy}
               </p>
             </div>
             <aside className="border border-accl-line bg-accl-paper p-8">
-              <div className="mb-10 grid h-20 w-20 place-items-center rounded-full bg-accl-ink text-sm font-semibold uppercase tracking-[0.22em] text-white">
-                SA
-              </div>
+              {profile.portrait ? <div className="relative mb-6 aspect-[4/5]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="360px" /></div> : <PhotoPending label="TODO: approved portrait of Samuel Alonge" portrait />}
               <p className="font-display text-2xl leading-snug">
-                “Award-level Architectural Designs. Meticulous Craftsmanship in Construction. Timeless Spaces,
-                Functional Beauty.”
+                {profile.brandLine}
               </p>
             </aside>
           </div>
@@ -77,21 +74,20 @@ export default function HomePage() {
       <section id="work" className="bg-white px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="grid gap-4">
-            <img className="aspect-[16/9] w-full object-cover" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} />
+            {gloryDomeImages[0] ? <Image className="aspect-[16/9] w-full object-cover" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={1600} height={900} sizes="(max-width: 1023px) 100vw, 50vw" /> : <PhotoPending label="TODO: confirm rights for the preserved Glory Dome photographs" />}
             <div className="grid gap-4 md:grid-cols-2">
               {gloryDomeImages.slice(1).map((image) => (
-                <img key={image.src} className="aspect-[16/9] w-full object-cover" src={image.src} alt={image.alt} />
+                <Image key={image.src} className="aspect-[16/9] w-full object-cover" src={image.src} alt={image.alt} width={800} height={450} sizes="(max-width: 767px) 100vw, 25vw" />
               ))}
             </div>
           </div>
           <div>
             <p className="section-label">Flagship Proof Point</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">Dunamis Glory Dome</h2>
+            <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">{flagship.title}</h2>
             <p className="mt-8 text-lg leading-8 text-accl-muted">
-              A 100,000+ seat, pillar-free sanctuary in Abuja and a landmark expression of worship architecture.
-              Its scale demands architectural clarity around movement, visibility, structure, dignity,
-              maintenance, and long-term value.
+              {flagship.summary}
             </p>
+            <p className="mt-4 text-sm text-accl-muted">TODO: approved project credits and Samuel's exact role.</p>
             <div className="mt-10 grid gap-4">
               {[
                 ["Landmark Scale", "A high-capacity worship environment with strong civic and spiritual presence."],
@@ -151,6 +147,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 max-w-4xl">
             <p className="section-label">Selected Visual Language</p>
+            {!selectedVisuals.length ? <PhotoPending label="TODO: approved selected project images and captions" /> : null}
             <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
               Monumental scale, warm detail, disciplined form.
             </h2>
@@ -159,7 +156,7 @@ export default function HomePage() {
             {selectedVisuals.map((visual) => (
               <figure key={visual.title} className="group">
                 <div className="aspect-[4/5] overflow-hidden bg-accl-paper">
-                  <img className="h-full w-full object-cover transition duration-700 group-hover:scale-105" src={visual.image} alt={visual.title} />
+                  <Image className="h-full w-full object-cover transition duration-700 group-hover:scale-105" src={visual.image} alt={visual.title} width={800} height={1000} sizes="(max-width: 767px) 100vw, 33vw" />
                 </div>
                 <figcaption className="mt-4 text-sm text-accl-muted">{visual.caption}</figcaption>
               </figure>
@@ -191,8 +188,7 @@ export default function HomePage() {
               Prepare a clear project brief before the first conversation.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-accl-muted">
-              Use the form to structure your inquiry. It can be connected to email, phone, WhatsApp,
-              or Instagram once the preferred contact channel is confirmed.
+              Tell us about your project. While direct contact details are being confirmed, reach us through Instagram.
             </p>
             {/* Replace with confirmed Instagram link when needed. */}
             <a className="mt-8 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-accl-warm transition hover:text-accl-ink" href="https://www.instagram.com/crystalstairs_ltd/">

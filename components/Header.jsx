@@ -2,17 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "@/data/site";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 32);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/35 text-white backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1480px] items-center justify-between px-5 py-4 md:px-8">
-        <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 text-white backdrop-blur-md transition-colors ${scrolled ? "bg-accl-ink/95" : "bg-black/60"}`}>
+      <div className={`mx-auto flex max-w-[1480px] items-center justify-between px-5 transition-all md:px-8 ${scrolled ? "py-2" : "py-4"}`}>
+        <Link href="/" aria-label="Architect Samuel Alonge / Crystal Stairs Ltd home" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="grid h-11 w-11 place-items-center border border-white/70 text-[11px] font-semibold tracking-[0.26em] transition group-hover:bg-white group-hover:text-accl-ink">
             SA
           </span>
@@ -26,6 +33,7 @@ export default function Header() {
           type="button"
           aria-label="Toggle navigation"
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((value) => !value)}
         >
           <span className="relative h-3 w-5">
@@ -47,7 +55,7 @@ export default function Header() {
         </nav>
       </div>
 
-      <div className={`grid overflow-hidden bg-accl-ink/95 transition-all duration-300 md:hidden ${open ? "max-h-96" : "max-h-0"}`}>
+      <div id="mobile-navigation" hidden={!open} className="bg-accl-ink/95 md:hidden" onKeyDown={(event) => { if (event.key === "Escape") setOpen(false); }}>
         <nav className="grid gap-1 px-5 pb-5 text-sm uppercase tracking-[0.18em]">
           {navItems.map((item) => (
             <Link

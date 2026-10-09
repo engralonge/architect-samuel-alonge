@@ -1,6 +1,6 @@
 ﻿import Hero from "@/components/Hero";
 import ProjectGrid from "@/components/ProjectGrid";
-import { gloryDomeImages, projectCategories } from "@/data/site";
+import { heroImage, projectCategories } from "@/data/site";
 
 export const metadata = {
   title: "Work | Architect Samuel Alonge"
@@ -8,11 +8,11 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero
         eyebrow="Work"
         title="Landmark architecture, worship spaces, residences, and advisory work."
-        image={gloryDomeImages[0].src}
+        image={heroImage}
         align="center"
       />
       <section className="bg-white px-5 py-16 md:px-8 lg:py-24">

@@ -8,11 +8,11 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero
         eyebrow="Profile"
         title="A calm architectural mind for high-stakes buildings."
-        copy="Crystal Stairs Ltd shapes timeless, functional spaces with disciplined design and construction thinking."
+        copy="We shape timeless, functional spaces with disciplined design and construction thinking."
         image={heroImage}
         align="center"
       />

@@ -37,20 +37,21 @@ export const navItems = [
 export const heroImage =
   "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=85";
 
-export const gloryDomeImages = [
-  {
-    src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=85",
-    alt: "Placeholder aerial architectural image for Dunamis Glory Dome"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=85",
-    alt: "Placeholder monumental entrance image"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=1400&q=85",
-    alt: "Placeholder exterior facade image"
-  }
-];
+export const heroImageAlt = "Illustrative architectural study, not a Crystal Stairs project";
+export const contactDetails = {
+  email: null, // TODO: verified public email.
+  phone: null, // TODO: verified international phone number.
+  whatsapp: null, // TODO: verified WhatsApp number, digits only.
+  address: null // TODO: verified office address.
+};
+export const profile = {
+  copy: "We bring disciplined design and meticulous construction thinking to buildings that balance presence with practical function. We help clients make clear decisions before drawings, budgets, contractors, and site pressures define the outcome.",
+  brandLine: "Award-level architectural designs. Meticulous craftsmanship in construction. Timeless spaces, functional beauty.",
+  portrait: null // TODO: licensed portrait of Samuel. Archived profile file is a logo.
+};
+
+// TODO: approved Glory Dome photography. Do not substitute unrelated stock.
+export const gloryDomeImages = [];
 
 export const insights = [
   {
@@ -129,68 +130,28 @@ export const processSteps = [
   }
 ];
 
-export const selectedVisuals = [
-  {
-    title: "Design Excellence",
-    caption: "Modern architectural clarity and disciplined form.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    title: "Creator-Led Practice",
-    caption: "Personal accountability, vision, and craft in every project conversation.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    title: "Monumental Presence",
-    caption: "Scale, arrival, visibility, and long-term value.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85"
-  }
-];
+// TODO: approved project captions, identity and photography rights.
+export const selectedVisuals = [];
 
 export const projectCategories = ["All", "Worship", "Residential", "Commercial", "Advisory"];
 
 export const projects = [
   {
-    title: "Dunamis Glory Dome",
+    slug: "dunamis-glory-dome",
+    title: flagship.title,
+    sector: "Worship",
     category: "Worship",
-    location: "Abuja, Nigeria",
-    year: "Flagship",
-    image: gloryDomeImages[0].src
-  },
-  {
-    title: "Private Residence Concept",
-    category: "Residential",
-    location: "Nigeria",
-    year: "Placeholder",
-    image: selectedVisuals[0].image
-  },
-  {
-    title: "Commercial Identity Study",
-    category: "Commercial",
-    location: "Nigeria",
-    year: "Placeholder",
-    image: selectedVisuals[2].image
-  },
-  {
-    title: "Worship Campus Advisory",
-    category: "Advisory",
-    location: "West Africa",
-    year: "Placeholder",
-    image: gloryDomeImages[1].src
-  },
-  {
-    title: "Luxury Home Design Review",
-    category: "Residential",
-    location: "Nigeria",
-    year: "Placeholder",
-    image: selectedVisuals[1].image
-  },
-  {
-    title: "Landmark Feasibility Session",
-    category: "Advisory",
-    location: "Nigeria",
-    year: "Placeholder",
-    image: gloryDomeImages[2].src
+    location: flagship.location,
+    year: null, // TODO: approved completion year.
+    client: null, // TODO: approved client attribution.
+    status: null, // TODO: approved status.
+    role: flagship.role,
+    image: null,
+    images: gloryDomeImages,
+    keyFacts: { capacity: "100,000+ seats", type: "Worship", floorArea: null },
+    credits: [], // TODO: approved role, engineers and contractor.
+    summary: flagship.summary,
+    body: [] // TODO: approved narrative and specifications.
   }
 ];
 
@@ -199,16 +160,6 @@ export const people = [
     name: "Architect Samuel Alonge",
     role: "Lead Architect / Consultant",
     bio: "Design leadership for homes, worship spaces, and ambitious public architecture."
-  },
-  {
-    name: "Crystal Stairs Studio",
-    role: "Design & Advisory Team",
-    bio: "Placeholder team profile for architectural design, construction thinking, and project coordination."
-  },
-  {
-    name: "Delivery Partners",
-    role: "Project Consultants",
-    bio: "Placeholder profile for engineers, builders, and specialist collaborators supporting each project."
   }
 ];
 
@@ -222,8 +173,5 @@ export const consultationTypes = [
 
 export const socialLinks = [
   // Replace with the confirmed Crystal Stairs Ltd Instagram URL if it changes.
-  { label: "Instagram", href: "https://www.instagram.com/crystalstairs_ltd/" },
-  // Add LinkedIn, YouTube, or Facebook when confirmed.
-  { label: "LinkedIn", href: "#" },
-  { label: "YouTube", href: "#" }
+  { label: "Instagram", href: "https://www.instagram.com/crystalstairs_ltd/" }
 ];

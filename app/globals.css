@@ -10,9 +10,17 @@
   box-sizing: border-box;
 }
 
+.grid > * { min-width: 0; }
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
+
+section[id] { scroll-margin-top: 100px; }
+/* Visible by default, including no-JS rendering and direct section links. */
+:focus-visible { outline: 2px solid #8e4e3f; outline-offset: 4px; }
+input::placeholder, textarea::placeholder { color: #64615d; opacity: 1; }
 
 body {
   min-height: 100vh;
@@ -29,7 +37,7 @@ img {
 
 @layer components {
   .section-label {
-    @apply text-xs font-semibold uppercase tracking-[0.28em] text-accl-warm;
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-accl-brick;
   }
 
   .field-label {

@@ -14,6 +14,7 @@ module.exports = {
           line: "#e8e5df",
           paper: "#f7f5f1",
           warm: "#c6a978",
+          brick: "#8e4e3f",
           slate: "#222522"
         }
       },

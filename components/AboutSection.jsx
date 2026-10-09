@@ -1,4 +1,4 @@
-﻿import { services } from "@/data/site";
+import { profile, services } from "@/data/site";
 
 export default function AboutSection() {
   return (
@@ -13,12 +13,10 @@ export default function AboutSection() {
           </h2>
           <div className="mt-10 grid gap-8 text-lg leading-8 text-accl-muted md:grid-cols-2">
             <p>
-              Samuel Alonge's public brand is built around award-level design, meticulous craftsmanship,
-              and buildings that balance presence with practical function.
+              {profile.copy}
             </p>
             <p>
-              Crystal Stairs Ltd helps clients make better decisions before drawings, budgets,
-              contractors, and site pressure lock the project in place.
+              {profile.brandLine}
             </p>
           </div>
           <div className="mt-12 grid gap-px bg-accl-line md:grid-cols-3">
