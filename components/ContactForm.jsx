@@ -29,7 +29,7 @@ export default function ContactForm() {
     }
   }
   return (
-    <form onSubmit={submit} className="grid gap-4 border border-accl-line bg-white p-6" aria-label="Consultation enquiry">
+    <form action="/api/contact" method="post" onSubmit={submit} className="grid gap-4 border border-accl-line bg-white p-6" aria-label="Consultation enquiry">
       <label className="field-label">Name<input className="field-input" name="name" autoComplete="name" required maxLength={120} placeholder="Your name" /></label>
       <label className="field-label">Email or phone<input className="field-input" name="contact" required maxLength={200} placeholder="How should we reach you?" /></label>
       <label className="field-label">Location<input className="field-input" name="location" autoComplete="address-level2" maxLength={200} placeholder="City, state, or country" /></label>

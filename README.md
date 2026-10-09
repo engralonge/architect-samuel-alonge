@@ -43,14 +43,22 @@ data/
 ## Editing Notes
 
 - Replace placeholder image URLs in `data/site.js` with licensed Samuel Alonge / Crystal Stairs Ltd project photography.
-- Replace placeholder email and phone comments in `components/Footer.jsx` and `app/contact/page.jsx` with verified details.
-- Replace placeholder social links in `data/site.js` when official links are confirmed.
-- Connect `ContactForm.jsx` to email, WhatsApp, CRM, or a real form handler before production use.
+- Fill `contactDetails` in `data/site.js` with verified email, phone, WhatsApp and address.
+- Only add official social links; missing social channels have no rendered link.
+- Connect `app/api/contact/route.js` to the approved inbox. It currently validates requests
+  and returns 503 without storing or sending anything. Success UI must only follow delivery.
+- Read `docs/phase-1-review.md` for the asset inventory, every content TODO and review steps.
+- `public/legacy/assets/` contains recovered images for approval, not a verified portfolio.
+  The archived profile image is a cropped logo, not a portrait.
+- The current 2200px Unsplash hero is clearly labelled illustrative. Replace it with
+  approved project photography; do not use unrelated stock as a Glory Dome image.
+- Production remains on `main`; review work is on `nextjs-rebuild`. `vercel.json`
+  supplies the Next.js build settings for branch previews. Do not merge until approved.
 
 ## Install
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Run Locally
@@ -69,5 +77,6 @@ http://localhost:3000
 
 ```bash
 npm run build
+npm run lint
 npm run start
 ```

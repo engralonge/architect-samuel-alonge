@@ -2,7 +2,11 @@ import { consultationTypes } from "@/data/site";
 
 export async function POST(request) {
   let input;
-  try { input = await request.json(); }
+  try {
+    input = request.headers.get("content-type")?.includes("application/json")
+      ? await request.json()
+      : Object.fromEntries(await request.formData());
+  }
   catch { return Response.json({ error: "Please submit a valid enquiry." }, { status: 400 }); }
   const limits = { name: 120, contact: 200, location: 200, projectType: 100, message: 5000 };
   if (!input || typeof input !== "object" || Array.isArray(input)) {

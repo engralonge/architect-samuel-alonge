@@ -58,3 +58,14 @@ Enable reduced motion and check that content remains readable with JS disabled.
 
 The live inbox, real portrait and real hero-image acceptance items remain pending
 the owner's inputs. Lighthouse acceptance is reserved for Phase 4.
+
+## Verification evidence
+
+- Build and lint passed with no errors.
+- Home and all four supporting routes fit at 375, 768 and 1280px; hero loaded.
+- Header shrinks from approximately 77px to 61px with an opaque charcoal background.
+- Unconfigured enquiry displays the 503 message and retains entered values.
+- Hero optimizer returns AVIF at 1920px: 244,234 bytes (approximately 239 KB).
+- Vercel's first preview exposed a cross-platform lockfile inconsistency; regenerated
+  the lock from an empty dependency tree and verified using `npm ci`.
+- Unsplash illustrative hero licence: https://unsplash.com/license.

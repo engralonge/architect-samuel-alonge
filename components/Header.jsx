@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navItems } from "@/data/site";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButton = useRef(null);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     update();
@@ -29,7 +30,8 @@ export default function Header() {
         </Link>
 
         <button
-          className="grid h-11 w-11 place-items-center border border-white/30 md:hidden"
+          ref={menuButton}
+          className="grid h-11 w-11 place-items-center border border-white/30 lg:hidden"
           type="button"
           aria-label="Toggle navigation"
           aria-expanded={open}
@@ -42,7 +44,7 @@ export default function Header() {
           </span>
         </button>
 
-        <nav className="hidden items-center gap-8 text-xs uppercase tracking-[0.2em] md:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-8 text-xs uppercase tracking-[0.2em] lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -55,8 +57,8 @@ export default function Header() {
         </nav>
       </div>
 
-      <div id="mobile-navigation" hidden={!open} className="bg-accl-ink/95 md:hidden" onKeyDown={(event) => { if (event.key === "Escape") setOpen(false); }}>
-        <nav className="grid gap-1 px-5 pb-5 text-sm uppercase tracking-[0.18em]">
+      <div id="mobile-navigation" hidden={!open} className="bg-accl-ink/95 lg:hidden" onKeyDown={(event) => { if (event.key === "Escape") { setOpen(false); menuButton.current?.focus(); } }}>
+        <nav aria-label="Mobile navigation" className="grid gap-1 px-5 pb-5 text-sm uppercase tracking-[0.18em]">
           {navItems.map((item) => (
             <Link
               key={item.href}
