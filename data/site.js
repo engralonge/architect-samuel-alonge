@@ -11,9 +11,10 @@ export const legacyAssets = [
   "samuel-alonge-profile.jpg"
 ].map((filename) => ({
   src: `/legacy/assets/${filename}`,
-  approved: false,
+  approved: filename.startsWith("glory-dome-"),
   description: filename === "samuel-alonge-profile.jpg"
     ? "Crystal Stairs Ltd cropped logo; not a portrait"
+    : filename.startsWith("glory-dome-") ? "Dunamis Glory Dome; usage permission granted by owner"
     : "Legacy asset; TODO: confirm photography rights and image description"
 }));
 
@@ -35,23 +36,34 @@ export const navItems = [
 ];
 
 export const heroImage =
-  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=85";
+  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=3840&q=85";
 
 export const heroImageAlt = "Illustrative architectural study, not a Crystal Stairs project";
 export const contactDetails = {
-  email: null, // TODO: verified public email.
-  phone: null, // TODO: verified international phone number.
-  whatsapp: null, // TODO: verified WhatsApp number, digits only.
+  email: "Stairways2023@gmail.com",
+  phone: "+2349050000040",
+  phoneDisplay: "0905 000 0040",
+  whatsapp: "2349050000040",
   address: null // TODO: verified office address.
 };
 export const profile = {
   copy: "We bring disciplined design and meticulous construction thinking to buildings that balance presence with practical function. We help clients make clear decisions before drawings, budgets, contractors, and site pressures define the outcome.",
   brandLine: "Award-level architectural designs. Meticulous craftsmanship in construction. Timeless spaces, functional beauty.",
-  portrait: null // TODO: licensed portrait of Samuel. Archived profile file is a logo.
+  portrait: "/images/portrait_Sam.png"
 };
 
-// TODO: approved Glory Dome photography. Do not substitute unrelated stock.
-export const gloryDomeImages = [];
+// Usage permission granted. TODO: higher-resolution originals for retina project heroes.
+export const gloryDomeImages = [
+  { src: "/legacy/assets/glory-dome-aerial.png", alt: "Aerial view of Dunamis Glory Dome and its gold roof", width: 721, height: 384 },
+  { src: "/legacy/assets/glory-dome-entrance.png", alt: "Dunamis Glory Dome entrance with red carpet stairs", width: 723, height: 340 },
+  { src: "/legacy/assets/glory-dome-exterior.png", alt: "Dunamis Glory Dome exterior with arched facade", width: 722, height: 343 }
+];
+
+// TODO: owner verification of these claims. Retain existing copy until confirmed.
+export const claimsToVerify = [
+  { claim: "Award-level", status: "awaiting owner verification" },
+  { claim: "100,000+ seat", status: "awaiting owner verification" }
+];
 
 export const insights = [
   {
@@ -146,7 +158,7 @@ export const projects = [
     client: null, // TODO: approved client attribution.
     status: null, // TODO: approved status.
     role: flagship.role,
-    image: null,
+    image: gloryDomeImages[0].src,
     images: gloryDomeImages,
     keyFacts: { capacity: "100,000+ seats", type: "Worship", floorArea: null },
     credits: [], // TODO: approved role, engineers and contractor.

@@ -23,7 +23,6 @@ export default function Hero({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-black/10" />
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent" />
-      <p className="absolute bottom-3 right-5 z-10 text-xs text-white/90">Illustrative photography / Unsplash</p>
       <div className={`relative z-10 mx-auto flex min-h-[88svh] max-w-[1480px] px-5 pb-16 pt-32 md:px-8 lg:pb-24 ${align === "center" ? "items-center" : "items-end"}`}>
         <div className="max-w-5xl">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-accl-warm">{eyebrow}</p>

@@ -2,6 +2,7 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { contactDetails, profile } from "@/data/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org", "@type": "ProfessionalService",
           name: "Crystal Stairs Ltd", url: "https://architect-samuel-alonge.vercel.app",
+          telephone: contactDetails.phone, email: contactDetails.email, image: profile.portrait,
           founder: { "@type": "Person", name: "Architect Samuel Alonge", jobTitle: "Architect" },
           sameAs: ["https://www.instagram.com/crystalstairs_ltd/"],
           serviceType: ["Architectural Design", "Construction Advisory", "Landmark Strategy"]

@@ -12,8 +12,8 @@
   architectural themes and YouTube URL: `flagship` in `data/site.js`.
 - Practice positioning, services, process and Instagram URL remain in site data.
 
-No archived image has confirmed ownership or publication permission yet.
-Preservation is not a licence assertion. Archived assets are not rendered.
+At the initial review, image rights were unconfirmed. Subsequent owner approval
+for the three Glory Dome photos and supplied portrait is recorded in phase-1-followup.md.
 
 ## Changes
 
@@ -30,7 +30,7 @@ Preservation is not a licence assertion. Archived assets are not rendered.
   Unconfigured inbox returns 503 and never reports successful delivery.
 - Added ESLint development tooling and restored ProfessionalService JSON-LD.
 
-## Every outstanding content TODO
+## Original TODO inventory (superseded by phase-1-followup.md)
 
 1. Verified public email.
 2. Verified international phone number.

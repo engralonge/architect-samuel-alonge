@@ -1,7 +1,7 @@
 ﻿import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/Hero";
 import Image from "next/image";
-import PhotoPending from "@/components/PhotoPending";
+import ContactDetails from "@/components/ContactDetails";
 import {
   gloryDomeImages,
   heroImage,
@@ -38,7 +38,7 @@ export default function HomePage() {
               </p>
             </div>
             <aside className="border border-accl-line bg-accl-paper p-8">
-              {profile.portrait ? <div className="relative mb-6 aspect-[4/5]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="360px" /></div> : <PhotoPending label="TODO: approved portrait of Samuel Alonge" portrait />}
+              {profile.portrait ? <div className="relative mb-6 aspect-[4/5]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="(max-width: 1023px) 80vw, 296px" className="object-cover object-top" /></div> : null}
               <p className="font-display text-2xl leading-snug">
                 {profile.brandLine}
               </p>
@@ -71,23 +71,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="work" className="bg-white px-5 py-20 md:px-8 lg:py-28">
+      <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="grid gap-4">
-            {gloryDomeImages[0] ? <Image className="aspect-[16/9] w-full object-cover" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={1600} height={900} sizes="(max-width: 1023px) 100vw, 50vw" /> : <PhotoPending label="TODO: confirm rights for the preserved Glory Dome photographs" />}
+          <div className="order-2 grid gap-4 lg:order-1">
+            {gloryDomeImages[0] ? <Image className="aspect-[16/9] w-full object-cover" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={gloryDomeImages[0].width} height={gloryDomeImages[0].height} sizes="(max-width: 1023px) 100vw, 50vw" /> : null}
             <div className="grid gap-4 md:grid-cols-2">
               {gloryDomeImages.slice(1).map((image) => (
                 <Image key={image.src} className="aspect-[16/9] w-full object-cover" src={image.src} alt={image.alt} width={800} height={450} sizes="(max-width: 767px) 100vw, 25vw" />
               ))}
             </div>
           </div>
-          <div>
+          <div className="order-1 lg:order-2">
             <p className="section-label">Flagship Proof Point</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">{flagship.title}</h2>
+            <h2 id="work" tabIndex={-1} className="mt-5 font-display text-4xl leading-tight md:text-6xl">{flagship.title}</h2>
             <p className="mt-8 text-lg leading-8 text-accl-muted">
               {flagship.summary}
             </p>
-            <p className="mt-4 text-sm text-accl-muted">TODO: approved project credits and Samuel's exact role.</p>
+            {/* TODO: approved project credits and Samuel's exact role. */}
             <div className="mt-10 grid gap-4">
               {[
                 ["Landmark Scale", "A high-capacity worship environment with strong civic and spiritual presence."],
@@ -143,11 +143,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
+      {selectedVisuals.length > 0 ? <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 max-w-4xl">
             <p className="section-label">Selected Visual Language</p>
-            {!selectedVisuals.length ? <PhotoPending label="TODO: approved selected project images and captions" /> : null}
             <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
               Monumental scale, warm detail, disciplined form.
             </h2>
@@ -163,7 +162,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> : null}
 
       <section className="bg-accl-paper px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[0.32fr_1fr]">
@@ -188,12 +187,9 @@ export default function HomePage() {
               Prepare a clear project brief before the first conversation.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-accl-muted">
-              Tell us about your project. While direct contact details are being confirmed, reach us through Instagram.
+              Tell us about your project. Call us, send an email, or continue the conversation on WhatsApp.
             </p>
-            {/* Replace with confirmed Instagram link when needed. */}
-            <a className="mt-8 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-accl-warm transition hover:text-accl-ink" href="https://www.instagram.com/crystalstairs_ltd/">
-              Continue on Instagram
-            </a>
+            <div className="mt-8"><ContactDetails /></div>
           </div>
           <ContactForm />
         </div>

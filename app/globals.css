@@ -14,10 +14,10 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 88px;
 }
 
-section[id] { scroll-margin-top: 100px; }
+/* One root offset avoids doubling the header gap for direct anchor links. */
 /* Visible by default, including no-JS rendering and direct section links. */
 :focus-visible { outline: 2px solid #8e4e3f; outline-offset: 4px; }
 input::placeholder, textarea::placeholder { color: #64615d; opacity: 1; }

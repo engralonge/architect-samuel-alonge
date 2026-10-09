@@ -24,5 +24,5 @@ export async function POST(request) {
   }
   // TODO: connect the owner-approved inbox, add delivery protection and test receipt.
   // Do not store, log, or claim delivery while the destination is unconfigured.
-  return Response.json({ error: "Online enquiries are not connected yet. Please contact Crystal Stairs Ltd on Instagram." }, { status: 503 });
+  return Response.json({ error: "Please email Stairways2023@gmail.com or call 0905 000 0040 to discuss your project." }, { status: 503 });
 }
