@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+}
+
+::selection {
+  background: #c6a978;
+  color: #111111;
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.28em] text-accl-warm;
+  }
+
+  .field-label {
+    @apply grid gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accl-muted;
+  }
+
+  .field-input {
+    @apply w-full border border-accl-line bg-accl-paper px-4 py-4 text-base normal-case tracking-normal text-accl-ink outline-none transition focus:border-accl-warm focus:bg-white;
+  }
+}
+
+@keyframes heroDrift {
+  from {
+    transform: scale(1.04);
+  }
+
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
