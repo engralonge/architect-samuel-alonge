@@ -1,10 +1,9 @@
 ﻿import ContactForm from "@/components/ContactForm";
-import Hero from "@/components/Hero";
+import HeroSlideshow from "@/components/HeroSlideshow";
 import Image from "next/image";
 import ContactDetails from "@/components/ContactDetails";
 import {
   gloryDomeImages,
-  heroImage,
   insights,
   processSteps,
   sectors,
@@ -16,16 +15,9 @@ import { flagship, profile } from "@/data/site";
 export default function HomePage() {
   return (
     <main id="main-content" tabIndex={-1}>
-      <Hero
-        eyebrow="Architecture consulting for buildings that must carry meaning"
-        title="Landmark architectural vision, led by Architect Samuel Alonge."
-        copy="We shape timeless, functional spaces through disciplined design, meticulous construction thinking, and a clear path from concept to built reality."
-        image={heroImage}
-        primaryCta={{ label: "Start a Consultation", href: "#contact" }}
-        secondaryCta={{ label: "Study the Work", href: "#work" }}
-      />
+      <HeroSlideshow />
 
-      <section id="profile" className="bg-white px-5 py-20 md:px-8 lg:py-28">
+      <section id="profile" className="bg-white px-5 pb-20 pt-8 md:px-8 lg:pb-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[0.7fr_1.3fr]">
           <p className="section-label">Profile</p>
           <div className="grid gap-10 lg:grid-cols-[1fr_360px]">

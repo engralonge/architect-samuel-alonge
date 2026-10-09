@@ -36,6 +36,9 @@ img {
 }
 
 @layer components {
+  .hero-control {
+    @apply grid h-11 w-11 shrink-0 place-items-center border border-white/40 transition-colors hover:bg-white hover:text-accl-ink;
+  }
   .section-label {
     @apply text-xs font-semibold uppercase tracking-[0.28em] text-accl-brick;
   }
@@ -48,6 +51,23 @@ img {
     @apply w-full border border-accl-line bg-accl-paper px-4 py-4 text-base normal-case tracking-normal text-accl-ink outline-none transition focus:border-accl-warm focus:bg-white;
   }
 }
+
+.navigation-dialog {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.navigation-dialog::backdrop { background: #111111; }
+.navigation-dialog[open] { animation: menuReveal 250ms ease-out; }
+@keyframes menuReveal { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideProgress { from { width: 0; } to { width: 100%; } }
 
 @keyframes heroDrift {
   from {

@@ -15,7 +15,7 @@ export const legacyAssets = [
   description: filename === "samuel-alonge-profile.jpg"
     ? "Crystal Stairs Ltd cropped logo; not a portrait"
     : filename.startsWith("glory-dome-") ? "Dunamis Glory Dome; usage permission granted by owner"
-    : "Legacy asset; TODO: confirm photography rights and image description"
+    : "Unpublished legacy asset"
 }));
 
 export const flagship = {
@@ -30,6 +30,7 @@ export const flagship = {
 export const navItems = [
   { label: "Profile", href: "/#profile" },
   { label: "Work", href: "/#work" },
+  { label: "Projects", href: "/projects" },
   { label: "Insights", href: "/#insights" },
   { label: "Services", href: "/#services" },
   { label: "Contact", href: "/#contact" }
@@ -58,6 +59,15 @@ export const gloryDomeImages = [
   { src: "/legacy/assets/glory-dome-entrance.png", alt: "Dunamis Glory Dome entrance with red carpet stairs", width: 723, height: 340 },
   { src: "/legacy/assets/glory-dome-exterior.png", alt: "Dunamis Glory Dome exterior with arched facade", width: 722, height: 343 }
 ];
+
+// Three approved views of ONE project, not three separate commissions.
+// TODO: replace these with high-resolution originals; do not fabricate projects.
+export const heroSlides = gloryDomeImages.map((image, index) => ({
+  ...image,
+  title: flagship.title,
+  view: ["Aerial view", "Arrival", "Exterior"][index],
+  href: "/#work"
+}));
 
 // TODO: owner verification of these claims. Retain existing copy until confirmed.
 export const claimsToVerify = [
