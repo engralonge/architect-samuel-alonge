@@ -1,10 +1,9 @@
 ﻿import AboutSection from "@/components/AboutSection";
 import Hero from "@/components/Hero";
 import { heroImage } from "@/data/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Profile | Architect Samuel Alonge"
-};
+export const metadata = pageMetadata("Profile | Architect Samuel Alonge", "Discover the disciplined design and construction thinking of Architect Samuel Alonge / Crystal Stairs Ltd.", "/about-us");
 
 export default function AboutPage() {
   return (

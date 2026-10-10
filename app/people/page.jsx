@@ -1,10 +1,9 @@
 ﻿import Hero from "@/components/Hero";
 import PeopleSection from "@/components/PeopleSection";
 import { heroImage } from "@/data/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Studio | Architect Samuel Alonge"
-};
+export const metadata = pageMetadata("Studio | Architect Samuel Alonge", "Architect Samuel Alonge leads Crystal Stairs Ltd's architectural design and consulting practice.", "/people");
 
 export default function PeoplePage() {
   return (

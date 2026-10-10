@@ -27,11 +27,13 @@ export const flagship = {
   videoUrl: "https://www.youtube.com/watch?v=7cbPOU5sHNk"
 };
 
+// TODO: enable only after owner-approved real articles have been published.
+export const insightsPublished = false;
 export const navItems = [
   { label: "Profile", href: "/#profile" },
   { label: "Work", href: "/#work" },
   { label: "Projects", href: "/projects" },
-  { label: "Insights", href: "/#insights" },
+  ...(insightsPublished ? [{ label: "Insights", href: "/#insights" }] : []),
   { label: "Services", href: "/#services" },
   { label: "Contact", href: "/#contact" }
 ];

@@ -34,9 +34,10 @@ export default function Header() {
     <>
       <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 text-white backdrop-blur-md transition-colors ${scrolled ? "bg-accl-ink/95" : "bg-black/60"}`}>
         <div className={`mx-auto flex max-w-[1480px] items-center justify-between px-5 transition-all md:px-8 ${scrolled ? "py-2" : "py-4"}`}>
-          <Link href="/" aria-label="Architect Samuel Alonge / Crystal Stairs Ltd home" className="flex items-center gap-3">
+          <Link href="/" title="Architect Samuel Alonge / Crystal Stairs Ltd home" className="flex items-center gap-3">
             <span className="grid h-11 w-11 place-items-center border border-white/70 text-xs font-semibold">SA</span>
             <span className="text-xs uppercase tracking-[0.12em]">Crystal Stairs Ltd</span>
+            <span className="sr-only"> home - Architect Samuel Alonge</span>
           </Link>
           <button ref={trigger} type="button" aria-expanded={open} aria-controls="site-navigation" aria-haspopup="dialog" onClick={() => setOpen(true)} className="flex min-h-11 items-center gap-3 px-2 text-xs uppercase tracking-[0.18em] hover:text-accl-warm">
             Menu <Menu size={22} aria-hidden="true" />
@@ -60,7 +61,7 @@ export default function Header() {
               <p className="section-label">Architect Samuel Alonge</p>
               <p className="mt-5 max-w-sm font-display text-3xl leading-snug">Architecture for buildings that must carry meaning.</p>
               <div className="mt-8 grid gap-4 text-sm">
-                <a className="break-all hover:text-accl-brick" href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
+                <a className="whitespace-nowrap text-xs hover:text-accl-brick sm:text-sm" href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
                 <a className="hover:text-accl-brick" href={`tel:${contactDetails.phone}`}>{contactDetails.phoneDisplay}</a>
                 <a className="hover:text-accl-brick" href={`https://wa.me/${contactDetails.whatsapp}`}>WhatsApp</a>
               </div>

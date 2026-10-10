@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import NativeImage from "@/components/NativeImage";
 import { ArrowDown, ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { heroSlides } from "@/data/site";
@@ -50,7 +50,7 @@ export default function HeroSlideshow() {
     <section ref={region} aria-label="Dunamis Glory Dome views" aria-roledescription="carousel" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }} className="relative min-h-[94svh] bg-accl-ink text-white">
       <div className="absolute inset-0 overflow-hidden">
         {/* Preserve native dimensions until high-resolution originals arrive. */}
-        {heroSlides.map((image, index) => <Image key={image.src} src={image.src} alt={image.alt} width={image.width} height={image.height} sizes={`(max-width: ${image.width}px) 100vw, ${image.width}px`} quality={80} priority={index === 0} aria-hidden={index !== active} style={{ maxWidth: image.width, maxHeight: image.height }} className={`absolute right-0 top-24 h-auto w-full object-contain transition-opacity duration-1000 motion-reduce:transition-none md:top-28 ${index === active ? "opacity-100" : "opacity-0"}`} />)}
+        {heroSlides.map((image, index) => <NativeImage key={image.src} src={image.src} alt={image.alt} width={image.width} height={image.height} sizes={`(max-width: ${image.width}px) 100vw, ${image.width}px`} quality={80} priority={index === 0} fetchPriority={index === 0 ? "high" : "low"} aria-hidden={index !== active} className={`absolute right-0 top-24 transition-opacity duration-1000 motion-reduce:transition-none md:top-28 ${index === active ? "opacity-100" : "opacity-0"}`} />)}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
       </div>

@@ -19,7 +19,7 @@ export default function PeopleSection() {
                 </div>
               </div>
               <h3 className="font-display text-2xl">{person.name}</h3>
-              <p className="mt-2 text-xs uppercase tracking-[0.2em] text-accl-warm">{person.role}</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.2em] text-accl-brick">{person.role}</p>
               <p className="mt-6 leading-7 text-accl-muted">{person.bio}</p>
             </article>
           ))}

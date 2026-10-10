@@ -1,6 +1,7 @@
 ﻿import ContactForm from "@/components/ContactForm";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Image from "next/image";
+import NativeImage from "@/components/NativeImage";
 import ContactDetails from "@/components/ContactDetails";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -32,7 +33,7 @@ export default function HomePage() {
               </p>
             </div>
             <aside className="border border-accl-line bg-accl-paper p-8">
-              {profile.portrait ? <div className="relative mb-6 aspect-[4/5] max-w-[1712px]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="(max-width: 1023px) 80vw, 296px" className="object-scale-down object-top" /></div> : null}
+              {profile.portrait ? <NativeImage src={profile.portrait} alt="Architect Samuel Alonge" width={1712} height={1692} sizes="(max-width: 767px) 271px, 296px" quality={90} className="mb-6 !max-w-[296px]" /> : null}
               <p className="font-display text-2xl leading-snug">
                 {profile.brandLine}
               </p>
@@ -56,7 +57,7 @@ export default function HomePage() {
           <div className="grid gap-px bg-accl-line md:grid-cols-3">
             {insights.map((item) => (
               <article key={item.title} className="min-h-80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-warm">{item.number}</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-brick">{item.number}</span>
                 <h3 className="mt-16 font-display text-3xl leading-tight">{item.title}</h3>
                 <p className="mt-6 leading-7 text-accl-muted">{item.copy}</p>
               </article>
@@ -68,10 +69,10 @@ export default function HomePage() {
       <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="order-2 grid gap-4 lg:order-1">
-            {gloryDomeImages[0] ? <Image style={{ maxWidth: gloryDomeImages[0].width }} className="h-auto w-full object-contain" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={gloryDomeImages[0].width} height={gloryDomeImages[0].height} sizes="(max-width: 1023px) 100vw, 50vw" /> : null}
+            {gloryDomeImages[0] ? <NativeImage src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={gloryDomeImages[0].width} height={gloryDomeImages[0].height} sizes="(max-width: 1023px) 100vw, 50vw" /> : null}
             <div className="grid gap-4 md:grid-cols-2">
               {gloryDomeImages.slice(1).map((image) => (
-                <Image key={image.src} style={{ maxWidth: image.width }} className="h-auto w-full object-contain" src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 767px) 100vw, 25vw" />
+                <NativeImage key={image.src} src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 767px) 100vw, 25vw" />
               ))}
             </div>
           </div>
@@ -90,7 +91,7 @@ export default function HomePage() {
                 ["Long-Term Value", "Early design decisions protect dignity, maintenance, and construction intent."]
               ].map(([title, copy]) => (
                 <article key={title} className="border border-accl-line bg-accl-paper p-5">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-warm">{title}</h3>
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-brick">{title}</h3>
                   <p className="mt-3 leading-7 text-accl-muted">{copy}</p>
                 </article>
               ))}
@@ -124,8 +125,8 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {services.map((service) => (
               <article key={service.title} className="min-h-[420px] border border-accl-line bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-warm">{service.number}</span>
-                <h3 className="mt-16 font-display text-3xl leading-tight">{service.title}</h3>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accl-brick">{service.number}</span>
+                <h3 className="mt-16 font-display text-2xl leading-tight xl:text-3xl">{service.title}</h3>
                 <p className="mt-6 leading-7 text-accl-muted">{service.copy}</p>
                 <ul className="mt-8 grid gap-3 border-t border-accl-line pt-6 text-sm text-accl-muted">
                   {service.points.map((point) => (
@@ -165,7 +166,7 @@ export default function HomePage() {
           <ol className="grid gap-0 border-t border-accl-line">
             {processSteps.map((step, index) => (
               <li key={step.title} className="grid gap-5 border-b border-accl-line py-8 md:grid-cols-[90px_0.45fr_1fr]">
-                <span className="font-display text-4xl text-accl-warm">{String(index + 1).padStart(2, "0")}</span>
+                <span className="font-display text-4xl text-accl-brick">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="text-xl font-semibold">{step.title}</h3>
                 <p className="leading-8 text-accl-muted">{step.copy}</p>
               </li>

@@ -1,10 +1,7 @@
 import ProjectExplorer from "@/components/ProjectExplorer";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Projects | Architect Samuel Alonge",
-  description: "Explore the published work of Architect Samuel Alonge / Crystal Stairs Ltd by project sector.",
-  openGraph: { title: "Projects | Architect Samuel Alonge", description: "Architecture for buildings that must carry meaning." }
-};
+export const metadata = pageMetadata("Projects | Architect Samuel Alonge", "Explore the published work of Architect Samuel Alonge / Crystal Stairs Ltd by project sector.", "/projects");
 
 export default function ProjectsPage() {
   return (

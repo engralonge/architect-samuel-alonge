@@ -1,4 +1,4 @@
-import Image from "next/image";
+import NativeImage from "@/components/NativeImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProjectFacts from "@/components/ProjectFacts";
@@ -6,6 +6,7 @@ import ProjectGallery from "@/components/ProjectGallery";
 import ProjectSpecifications from "@/components/ProjectSpecifications";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/site";
+import { pageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -15,12 +16,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: "Project not found" };
-  return {
-    title: `${project.title} | Architect Samuel Alonge`,
-    description: project.summary,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: { title: project.title, description: project.summary, images: project.images.slice(0, 1).map((image) => ({ url: image.src, width: image.width, height: image.height, alt: image.alt })) }
-  };
+  return pageMetadata(`${project.title} | Architect Samuel Alonge`, project.summary, `/projects/${project.slug}`, project.images.slice(0, 1));
 }
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
@@ -38,7 +34,7 @@ export default async function ProjectPage({ params }) {
           <p className="mt-10 text-xs uppercase tracking-[0.14em] text-accl-warm">{project.sector}</p>
           <h1 className="mt-4 max-w-4xl font-display text-5xl leading-tight md:text-7xl">{project.title}</h1>
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5">{meta.map(([label, value]) => <div key={label}><dt className="text-xs uppercase text-white/70">{label}</dt><dd className="mt-2 text-sm">{value}</dd></div>)}</dl>
-          {photo ? <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes={`(max-width: ${photo.width}px) 100vw, ${photo.width}px`} priority style={{ maxWidth: photo.width }} className="ml-auto mt-10 h-auto w-full object-contain" /> : null}
+          {photo ? <NativeImage src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes={`(max-width: ${photo.width}px) 100vw, ${photo.width}px`} priority fetchPriority="high" className="ml-auto mt-10" /> : null}
         </div>
       </section>
       <section className="bg-accl-paper px-5 pb-16 md:px-8 md:pb-24">

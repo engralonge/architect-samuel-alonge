@@ -19,6 +19,7 @@ export default function Hero({
         sizes="100vw"
         quality={75}
         priority
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full scale-105 object-cover motion-safe:animate-heroDrift"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-black/10" />

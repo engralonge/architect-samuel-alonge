@@ -21,7 +21,7 @@ export default function ProjectExplorer() {
         <p role="status" aria-live="polite" aria-atomic="true" className="text-sm text-accl-muted">{filtered.length} {filtered.length === 1 ? "project" : "projects"}</p>
       </div>
       {filtered.length > 0 ? <div className="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.slice(0, limit).map((project, index) => <div key={project.slug} className={index % 5 === 0 ? "md:col-span-2" : ""}><ProjectCard project={project} featured={index % 5 === 0} /></div>)}
+        {filtered.slice(0, limit).map((project, index) => <div key={project.slug} className={index % 5 === 0 ? "md:col-span-2" : ""}><ProjectCard project={project} featured={index % 5 === 0} headingLevel={2} priority={index === 0} /></div>)}
       </div> : <div className="py-20">
         <h2 className="font-display text-3xl">{sector}</h2>
         <p className="mt-4 text-accl-muted">No published projects in this sector yet.</p>
