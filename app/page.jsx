@@ -2,6 +2,8 @@
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Image from "next/image";
 import ContactDetails from "@/components/ContactDetails";
+import Link from "next/link";
+import { Suspense } from "react";
 import {
   gloryDomeImages,
   insights,
@@ -80,6 +82,7 @@ export default function HomePage() {
               {flagship.summary}
             </p>
             {/* TODO: approved project credits and Samuel's exact role. */}
+            <Link href="/projects/dunamis-glory-dome" className="mt-8 inline-block border-b border-accl-brick py-3 text-sm text-accl-brick">Study the project</Link>
             <div className="mt-10 grid gap-4">
               {[
                 ["Landmark Scale", "A high-capacity worship environment with strong civic and spiritual presence."],
@@ -183,7 +186,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8"><ContactDetails /></div>
           </div>
-          <ContactForm />
+          <Suspense fallback={<div className="min-h-[560px]" aria-label="Consultation form" />}><ContactForm /></Suspense>
         </div>
       </section>
     </main>

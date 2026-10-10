@@ -66,7 +66,7 @@ export const heroSlides = gloryDomeImages.map((image, index) => ({
   ...image,
   title: flagship.title,
   view: ["Aerial view", "Arrival", "Exterior"][index],
-  href: "/#work"
+  href: "/projects/dunamis-glory-dome"
 }));
 
 // TODO: owner verification of these claims. Retain existing copy until confirmed.
@@ -172,6 +172,8 @@ export const projects = [
     images: gloryDomeImages,
     keyFacts: { capacity: "100,000+ seats", type: "Worship", floorArea: null },
     credits: [], // TODO: approved role, engineers and contractor.
+    specifications: [], // TODO: approved label/value specifications.
+    enquiryType: "Worship or assembly building",
     summary: flagship.summary,
     body: [] // TODO: approved narrative and specifications.
   }

@@ -51,7 +51,7 @@ img {
   }
 
   .field-input {
-    @apply w-full border border-accl-line bg-accl-paper px-4 py-4 text-base normal-case tracking-normal text-accl-ink outline-none transition focus:border-accl-warm focus:bg-white;
+    @apply w-full border-0 border-b border-accl-muted bg-transparent px-0 py-4 text-base normal-case tracking-normal text-accl-ink transition focus:border-accl-brick;
   }
 }
 

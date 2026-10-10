@@ -5,9 +5,8 @@ import Link from "next/link";
 export default function ProjectCard({ project, featured = false }) {
   return (
     <article className="group overflow-hidden bg-white">
-      {/* Phase 3 will replace the flagship anchor with the verified detail route. */}
-      <Link href="/#work" className="block" aria-label={`Study ${project.title}`}>
-      <div style={{ maxWidth: project.images?.[0]?.width || undefined }} className={`relative overflow-hidden bg-accl-paper ${featured ? "aspect-[16/9]" : "aspect-[1.28/1]"}`}>
+      <Link href={`/projects/${project.slug}`} className="block" aria-label={`Study ${project.title}`}>
+      <div style={{ maxWidth: project.images?.[0]?.width || undefined, maxHeight: project.images?.[0]?.height || undefined }} className={`relative overflow-hidden bg-accl-paper ${featured ? "aspect-[16/9]" : "aspect-[1.28/1]"}`}>
         {project.image ? <Image
           src={project.image}
           alt={project.images?.[0]?.alt || project.title}
