@@ -20,6 +20,9 @@ html {
 /* One root offset avoids doubling the header gap for direct anchor links. */
 /* Visible by default, including no-JS rendering and direct section links. */
 :focus-visible { outline: 2px solid #8e4e3f; outline-offset: 4px; }
+/* Root padding supplies 88px; this adds room for the flagship eyebrow. */
+#work { scroll-margin-top: 56px; }
+[tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
 input::placeholder, textarea::placeholder { color: #64615d; opacity: 1; }
 
 body {

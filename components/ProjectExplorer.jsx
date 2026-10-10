@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { projects, projectCategories } from "@/data/site";
+import { projects, projectCategories as sectors } from "@/data/site";
 import ProjectCard from "@/components/ProjectCard";
 
 const PAGE_SIZE = 6;
+const projectCategories = sectors.filter((category) => category === "All" || projects.some((project) => project.sector === category));
 
 export default function ProjectExplorer() {
   const [sector, setSector] = useState("All");

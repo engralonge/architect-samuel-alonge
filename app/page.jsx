@@ -30,7 +30,7 @@ export default function HomePage() {
               </p>
             </div>
             <aside className="border border-accl-line bg-accl-paper p-8">
-              {profile.portrait ? <div className="relative mb-6 aspect-[4/5]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="(max-width: 1023px) 80vw, 296px" className="object-cover object-top" /></div> : null}
+              {profile.portrait ? <div className="relative mb-6 aspect-[4/5] max-w-[1712px]"><Image src={profile.portrait} alt="Architect Samuel Alonge" fill sizes="(max-width: 1023px) 80vw, 296px" className="object-scale-down object-top" /></div> : null}
               <p className="font-display text-2xl leading-snug">
                 {profile.brandLine}
               </p>
@@ -66,10 +66,10 @@ export default function HomePage() {
       <section className="bg-white px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="order-2 grid gap-4 lg:order-1">
-            {gloryDomeImages[0] ? <Image className="aspect-[16/9] w-full object-cover" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={gloryDomeImages[0].width} height={gloryDomeImages[0].height} sizes="(max-width: 1023px) 100vw, 50vw" /> : null}
+            {gloryDomeImages[0] ? <Image style={{ maxWidth: gloryDomeImages[0].width }} className="h-auto w-full object-contain" src={gloryDomeImages[0].src} alt={gloryDomeImages[0].alt} width={gloryDomeImages[0].width} height={gloryDomeImages[0].height} sizes="(max-width: 1023px) 100vw, 50vw" /> : null}
             <div className="grid gap-4 md:grid-cols-2">
               {gloryDomeImages.slice(1).map((image) => (
-                <Image key={image.src} className="aspect-[16/9] w-full object-cover" src={image.src} alt={image.alt} width={800} height={450} sizes="(max-width: 767px) 100vw, 25vw" />
+                <Image key={image.src} style={{ maxWidth: image.width }} className="h-auto w-full object-contain" src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 767px) 100vw, 25vw" />
               ))}
             </div>
           </div>

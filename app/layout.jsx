@@ -17,6 +17,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata = {
   metadataBase: new URL("https://architect-samuel-alonge.vercel.app"),
+  icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
   title: "Architect Samuel Alonge | Crystal Stairs Ltd",
   description:
     "Premium architecture consulting for buildings that must carry meaning, led by Architect Samuel Alonge of Crystal Stairs Ltd.",
