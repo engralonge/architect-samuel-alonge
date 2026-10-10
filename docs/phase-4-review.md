@@ -7,7 +7,7 @@ Branch: `nextjs-rebuild`. Review preview only; main and production are not chang
 - Footer email can wrap only before @, never inside the mailbox or domain. The overlay email stays on one line.
 - Gallery width follows the available source resolution: the first photograph fills its row, with two views beneath it on desktop. No empty grid slot.
 - Hash-focused non-interactive headings have no outline; buttons, links and form controls retain keyboard focus indicators.
-- Shared next/image component caps source pixels for high-density screens, including the gallery lightbox. Approved project heroes, Work images and portfolio cards use the same caps. Conservative density buckets round upward rather than enlarge small sources.
+- Shared next/image component caps rendered CSS dimensions at native source width/height, including the gallery lightbox. Approved project heroes, Work images and portfolio cards use the same caps. These are display-size limits, not a promise of retina sharpness: physical screen density can still expose softness in the supplied originals.
 - Portrait source verified at 1712 x 1692; rendered at no more than 296px wide, with its original aspect ratio and quality 90. Higher-resolution source data cannot be recovered by image optimization.
 - Insights removed from header and footer navigation. `insightsPublished` in data/site.js keeps the entry ready to re-enable. Existing advisory pillars are not presented as published articles; no empty MDX routes or new dependencies.
 - Light-background gold labels changed to existing terracotta for contrast. Service headings use a smaller size in narrow tablet cards. Project heading hierarchy and visible-label/accessibility-name matching corrected.
@@ -23,7 +23,7 @@ Branch: `nextjs-rebuild`. Review preview only; main and production are not chang
 - `node scripts/verify-phase4.mjs`: approved source dimensions, unpublished Insights navigation, all public routes, robots and sitemap response types.
 - Sitemap parsed as XML and its five canonical URLs verified.
 - Browser checks at 375, 768 and 1280px: no horizontal overflow or heading/paragraph/list text beyond its container. Work eyebrow appears at approximately 108px below viewport top versus a 61px header, and heading outline is none.
-- Gallery arrows/Escape, focus return, Tab/Shift+Tab containment and menu without Insights checked. Desktop entrance lightbox measures 723 x 340px at 1x. Retina caps are implemented with resolution media queries; these are not a substitute for higher-resolution originals.
+- Gallery arrows/Escape, focus return, Tab/Shift+Tab containment and menu without Insights checked. Desktop entrance lightbox measures no more than 723 x 340 CSS pixels. A strict pixel-density-divided cap was tested and removed because it made high-density desktop galleries too small; native display-size caps keep the gallery usable while awaiting better originals.
 - Reduced-motion handling was inspected in CSS and slideshow state logic. Real assistive-technology testing and real-device/network measurements remain recommended; Lighthouse cannot certify complete accessibility.
 
 Run the production server with `npm run start -- --port 3012` after building. Both verification scripts support `TEST_SITE_URL`.
@@ -43,9 +43,9 @@ Lighthouse 13.5.0, October 10, 2026. One final run per page, after corrective re
 
 | Page | Performance | Accessibility | SEO | LCP |
 | --- | ---: | ---: | ---: | ---: |
-| Home | 95 | 100 | 100 | 2.9s |
+| Home | 96 | 100 | 100 | 2.7s |
 | Projects | 97 | 100 | 100 | 2.5s |
-| Glory Dome | 96 | 100 | 100 | 2.6s |
+| Glory Dome | 95 | 100 | 100 | 2.8s |
 | Profile (/about-us) | 96 | 100 | 100 | 2.7s |
 | Studio (/people) | 96 | 100 | 100 | 2.7s |
 
@@ -58,7 +58,7 @@ The score target is met under these conditions, but it is not a field Core Web V
 1. Open the homepage: check portrait size, hero controls/CTAs and service-card text fit. Open Menu; Insights should be absent. Escape and Tab navigation should work.
 2. Use Work from the menu or hero. The FLAGSHIP PROOF POINT eyebrow and title must remain below the header without a heading focus box.
 3. Open Projects, filter All/Worship, then Glory Dome. The gallery has a single full first row and two smaller desktop views, not an empty slot.
-4. Open the entrance view, use arrow buttons/keys, Tab/Shift+Tab and Escape. Low-resolution images deliberately stay small, including on retina displays.
+4. Open the entrance view, use arrow buttons/keys, Tab/Shift+Tab and Escape. Low-resolution images stay within their native display-size limits, rather than stretching across the entire desktop; retina softness still needs better originals.
 5. Check footer/contact email at each width: either one line or a break before @, never a trailing isolated letter. Prepare an enquiry draft and review it in your own email/WhatsApp app before sending.
 6. Enable reduced motion in your browser/OS and confirm manual slide controls still work without autoplay or transition animation.
 

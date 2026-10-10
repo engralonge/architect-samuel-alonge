@@ -24,18 +24,12 @@ html {
 #work { scroll-margin-top: 56px; }
 [tabindex="-1"]:focus { outline: none; }
 .hero-control:focus-visible { outline-color: #c6a978; }
-/* Source pixels, not CSS pixels: conservative caps avoid retina enlargement. */
-.native-image, .native-gallery {
-  --pixel-ratio: 1;
-}
+/* Native display-size limits; sharper retina views need higher-res originals. */
 .native-image {
-  max-width: calc(var(--native-width) / var(--pixel-ratio));
-  max-height: min(calc(var(--native-height) / var(--pixel-ratio)), var(--viewport-height, 100vh));
+  max-width: var(--native-width);
+  max-height: min(var(--native-height), var(--viewport-height, 100vh));
 }
-.native-gallery { max-width: calc(var(--gallery-width) / var(--pixel-ratio)); }
-@media (min-resolution: 1.01dppx) { .native-image, .native-gallery { --pixel-ratio: 2; } }
-@media (min-resolution: 2.01dppx) { .native-image, .native-gallery { --pixel-ratio: 3; } }
-@media (min-resolution: 3.01dppx) { .native-image, .native-gallery { --pixel-ratio: 4; } }
+.native-gallery { max-width: var(--gallery-width); }
 input::placeholder, textarea::placeholder { color: #64615d; opacity: 1; }
 
 body {
