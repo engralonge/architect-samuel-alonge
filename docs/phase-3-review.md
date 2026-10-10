@@ -28,7 +28,7 @@ Branch: nextjs-rebuild. Main and production remain unchanged. Phase 4 is not sta
 
 - npm run build and npm run lint pass.
 - Browser screenshots/geometry checks at 375, 768 and 1280px: no horizontal overflow or visible TODOs; detail images at or below native dimensions; one contact form.
-- Lightbox keyboard arrows, Escape, close button and focus return tested. Project-to-form prefill tested in the browser.
+- Lightbox keyboard arrows, Escape, close button and focus return tested. Explicit Tab/Shift+Tab wrapping tested in both navigation and gallery dialogs. Project-to-form prefill and general-contact reference reset tested in the browser.
 - scripts/verify-phase3.mjs verifies project 200, unknown slug 404, icons 200, /contact 307 redirect and properly encoded project-reference email/WhatsApp drafts. Run with npm run start -- --port 3012 in one terminal, then node scripts/verify-phase3.mjs in another. TEST_SITE_URL can select a different running host.
 - No enquiry was sent and no inbox receipt is claimed. Specifications, Credits and related-projects positive-content views remain untested with real content because none has been supplied.
 - Lighthouse targets, complete reduced-motion audit and final accessibility/performance polish remain Phase 4 work.

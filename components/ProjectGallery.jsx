@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { trapDialogFocus } from "@/lib/dialog-focus";
 
 export default function ProjectGallery({ images, title }) {
   const [active, setActive] = useState(null);
@@ -38,6 +39,7 @@ export default function ProjectGallery({ images, title }) {
         </figure>)}
       </div>
       <dialog ref={dialog} aria-labelledby="gallery-title" onCancel={close} onClose={() => setActive(null)} onKeyDown={(event) => {
+        trapDialogFocus(event);
         if (event.key === "ArrowLeft") { event.preventDefault(); step(-1); }
         if (event.key === "ArrowRight") { event.preventDefault(); step(1); }
       }} className="navigation-dialog bg-accl-ink text-white">

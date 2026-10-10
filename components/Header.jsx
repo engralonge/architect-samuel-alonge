@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navItems, contactDetails } from "@/data/site";
+import { trapDialogFocus } from "@/lib/dialog-focus";
 
 export default function Header() {
   const dialog = useRef(null);
@@ -43,7 +44,7 @@ export default function Header() {
         </div>
         <noscript><nav aria-label="Primary navigation" className="flex flex-wrap gap-4 px-5 pb-4 text-sm">{navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</nav></noscript>
       </header>
-      <dialog ref={dialog} id="site-navigation" aria-labelledby="menu-title" onCancel={closeMenu} onClose={() => setOpen(false)} className="navigation-dialog bg-accl-paper text-accl-ink">
+      <dialog ref={dialog} id="site-navigation" aria-labelledby="menu-title" onKeyDown={trapDialogFocus} onCancel={closeMenu} onClose={() => setOpen(false)} className="navigation-dialog bg-accl-paper text-accl-ink">
         <div className="mx-auto flex min-h-full max-w-[1480px] flex-col px-5 py-5 md:px-8">
           <div className="flex items-center justify-between gap-4 border-b border-accl-line pb-5">
             <p id="menu-title" className="text-xs uppercase tracking-[0.14em]">Crystal Stairs Ltd</p>
