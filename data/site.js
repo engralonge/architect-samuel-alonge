@@ -29,6 +29,10 @@ export const flagship = {
 
 // TODO: enable only after owner-approved real articles have been published.
 export const insightsPublished = false;
+export const shareImage = {
+  src: "/images/share-image.png", width: 1200, height: 630,
+  alt: "Architect Samuel Alonge / Crystal Stairs Ltd - Architecture consulting for buildings that must carry meaning"
+};
 export const navItems = [
   { label: "Profile", href: "/#profile" },
   { label: "Work", href: "/#work" },

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: "Project not found" };
-  return pageMetadata(`${project.title} | Architect Samuel Alonge`, project.summary, `/projects/${project.slug}`, project.images.slice(0, 1));
+  return pageMetadata(`${project.title} | Architect Samuel Alonge`, project.summary, `/projects/${project.slug}`);
 }
 export default async function ProjectPage({ params }) {
   const { slug } = await params;

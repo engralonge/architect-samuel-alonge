@@ -42,10 +42,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="insights" className="bg-accl-paper px-5 py-20 md:px-8 lg:py-28">
+      <section id="approach" className="bg-accl-paper px-5 py-20 md:px-8 lg:py-28">
         <div className="mx-auto grid max-w-[1480px] gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="section-label">Insights & Advisory</p>
+            <p className="section-label">Approach</p>
             <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
               Design decisions should be backed by evidence, not just taste.
             </h2>

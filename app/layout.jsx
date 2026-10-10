@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { contactDetails, profile } from "@/data/site";
-import { pageMetadata, siteUrl } from "@/lib/metadata";
+import { deploymentRobots, pageMetadata, siteUrl } from "@/lib/metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +20,7 @@ export const metadata = {
   metadataBase: new URL("https://architect-samuel-alonge.vercel.app"),
   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
   ...pageMetadata("Architect Samuel Alonge | Crystal Stairs Ltd", "Architecture consulting for buildings that must carry meaning, led by Architect Samuel Alonge of Crystal Stairs Ltd.", "/"),
-  robots: process.env.VERCEL_ENV === "preview" ? { index: false, follow: false } : { index: true, follow: true }
+  robots: deploymentRobots()
 };
 
 export default function RootLayout({ children }) {

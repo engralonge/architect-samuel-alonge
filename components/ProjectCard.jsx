@@ -4,18 +4,19 @@ import Link from "next/link";
 
 export default function ProjectCard({ project, featured = false, headingLevel = 3, priority = false }) {
   const Heading = `h${headingLevel}`;
+  const photo = project.images?.[0];
   return (
     <article style={{ "--gallery-width": `${project.images?.[0]?.width || 721}px` }} className="native-gallery group overflow-hidden bg-white">
       <Link href={`/projects/${project.slug}`} className="block">
-      <div style={{ "--native-width": `${project.images?.[0]?.width || 721}px`, "--native-height": `${project.images?.[0]?.height || 384}px` }} className={`native-image relative overflow-hidden bg-accl-paper ${featured ? "aspect-[16/9]" : "aspect-[1.28/1]"}`}>
+      <div style={{ aspectRatio: photo ? `${photo.width} / ${photo.height}` : featured ? "16 / 9" : "1.28 / 1" }} className="relative w-full overflow-hidden bg-accl-paper">
         {project.image ? <Image
           src={project.image}
           alt={project.images?.[0]?.alt || project.title}
           fill
           priority={priority}
           fetchPriority={priority ? "high" : undefined}
-          sizes={featured ? "(max-width: 1023px) 100vw, 66vw" : "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"}
-          className="h-full w-full object-scale-down transition-opacity duration-300 group-hover:opacity-90"
+          sizes={`(max-width: ${(photo?.width || 721) + 40}px) calc(100vw - 40px), ${photo?.width || 721}px`}
+          className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
         /> : <PhotoPending />}
         <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
         <span className="absolute left-4 top-4 bg-white/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-accl-ink">

@@ -1,6 +1,6 @@
 # Phase 4 review
 
-Branch: `nextjs-rebuild`. Review preview only; main and production are not changed.
+Historical Phase 4 review on `nextjs-rebuild`. The owner subsequently approved production release; see production-release.md for release changes and verification instructions.
 
 ## Completed
 
@@ -12,7 +12,7 @@ Branch: `nextjs-rebuild`. Review preview only; main and production are not chang
 - Insights removed from header and footer navigation. `insightsPublished` in data/site.js keeps the entry ready to re-enable. Existing advisory pillars are not presented as published articles; no empty MDX routes or new dependencies.
 - Light-background gold labels changed to existing terracotta for contrast. Service headings use a smaller size in narrow tablet cards. Project heading hierarchy and visible-label/accessibility-name matching corrected.
 - Priority fetch hints on first-view imagery; lazy next/image elsewhere, AVIF/WebP retained. Existing slideshow visibility, focus, hover and reduced-motion pause behavior retained.
-- Per-page canonical, description, Open Graph and Twitter metadata, absolute structured-data image URL, sitemap and robots routes. Preview deployments intentionally disallow indexing; production/local production audits allow indexing. Preview social images use the preview host; canonical URLs always target the eventual production host.
+- Per-page canonical, description, Open Graph and Twitter metadata, absolute structured-data image URL, sitemap and robots routes. Preview deployments intentionally disallow indexing; production/local production audits allow indexing. The release update uses the production host for all social images and canonical URLs.
 - Explicit sitemap/robots handlers avoid a Next 15 metadata-loader parsing bug when the Windows checkout path contains an apostrophe.
 - No new project dependencies, fabricated portfolio entries, visible TODOs, or inbox-delivery claims.
 
@@ -76,4 +76,4 @@ The score target is met under these conditions, but it is not a field Core Web V
 10. Approved inbox provider, delivery protection and a received test message. The current form only prepares email/WhatsApp drafts, so inbox-delivery acceptance is not yet met.
 11. Genuine approved articles before re-enabling Insights navigation; article routes are not published.
 
-No merging or production promotion until the owner approves.
+Owner approval for merging and production promotion was received after this review.
